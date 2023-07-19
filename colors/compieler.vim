@@ -1,30 +1,15 @@
+" Compieler colorscheme
+
 " Setup
 set background=dark
 highlight clear
 if exists("syntax_on")
 	syntax reset
 endif
-let g:colors_name = "yami"
+let g:colors_name = "compieler"
 
-" Color palette
-let s:lime   = "#ffb700"
-let s:purple = "#8080c8"
-let s:light  = "#dcdcdc"
-let s:dark   = "#000000"
-let s:gray0  = "#666666"
-let s:gray1  = "#323232"
-let s:gray2  = "#23242a"
-let s:gray3  = "#2b2b2b"
-let s:yellow = "#ffe59e"
-let s:blue   = "#52de97"
-let s:green  = "#79dcaa"
-let s:red    = "#f87070"
-let s:lred   = "#c87070"
-let s:dred   = "#ff8080"
-let s:green  = "#70f890"
-
-" Highlight helper function
-function! s:HL(item, fgColor, bgColor, style)
+" Highlight function
+function! HIGHLIGHTGROUP(item, fgColor, bgColor, style)
 	let command  = 'hi ' . a:item
 	let command .= ' ' . 'gui' . 'fg=' . a:fgColor
 	let command .= ' ' . 'gui' . 'bg=' . a:bgColor
@@ -32,135 +17,157 @@ function! s:HL(item, fgColor, bgColor, style)
 	execute command
 endfunction
 
-" Primitives
-call s:HL('String'      , s:purple  , 'NONE' , 'NONE' )
-call s:HL('Number'      , s:lime , 'NONE' , 'NONE' )
-call s:HL('Boolean'     , s:lime , 'NONE' , 'NONE' )
-call s:HL('Float'       , s:lime , 'NONE' , 'NONE' )
-call s:HL('Constant'    , s:lime , 'NONE' , 'NONE' )
-call s:HL('Character'   , s:red , 'NONE' , 'NONE' )
-call s:HL('SpecialChar' , s:red , 'NONE' , 'NONE' )
-call s:HL('IndentBlankLineChar' , "#108030", 'NONE' , 'NONE' )
+" Palette
+let s:black           = "#000000"
+let s:default         = "#DDDDDD"
+let s:white           = "#FFFFFF"
+let s:greenbright     = "#10FFA0"
+let s:greendark       = "#10AA20"
+let s:redsoft         = "#FF2080"
+let s:redbright       = "#FF2020"
+let s:reddark         = "#C87070"
+let s:redverydark     = "#802020"
+let s:redsuperdark    = "#401010"
+let s:redalert        = "#FF0020"
+let s:attention       = "#FF20AA"
+let s:yellowbright    = "#FFAA20"
+let s:yellowdark      = "#FF8020"
+let s:bluedark        = "#8080C8"
+let s:bluebright      = "#80AAFF"
+let s:cyan            = "#20FFFF"
 
-" Specials
-call s:HL('Title'          , s:gray0  , 'NONE' , 'NONE' )
-call s:HL('Todo'           , s:red , 'NONE' , 'NONE' )
-call s:HL('Comment'        , s:lred  , 'NONE' , 'NONE' )
-call s:HL('SpecialComment' , s:gray0  , 'NONE' , 'NONE' )
+let s:comment             = s:reddark
+let s:constant            = s:default
+let s:string              = s:bluedark
+let s:character           = s:redsoft
+let s:number              = s:yellowbright
+let s:boolean             = s:yellowbright
+let s:float               = s:yellowbright
+let s:identifier          = s:default
+let s:function            = s:default
+let s:statement           = s:default
+let s:conditional         = s:white
+let s:repeat              = s:white
+let s:label               = s:white
+let s:operator            = s:greenbright
+let s:keyword             = s:white
+let s:exception           = s:white
+let s:preproc             = s:default
+let s:include             = s:default
+let s:define              = s:white
+let s:macro               = s:default
+let s:precondit           = s:white
+let s:type                = s:white
+let s:storageclass        = s:white
+let s:structure           = s:white
+let s:typedef             = s:white
+let s:special             = s:greenbright
+let s:specialchar         = s:yellowdark
+let s:tag                 = s:attention
+let s:delimiter           = s:greendark
+let s:specialcomment      = s:bluebright
+let s:debug               = s:yellowdark
+let s:underlined          = s:cyan
+let s:ignore              = s:redbright
+let s:todo                = s:redsoft
+let s:error               = s:redalert
+let s:colorcolumn         = s:redsuperdark
+let s:cursearch           = s:default
+let s:cursor              = s:black
+let s:cursorline          = s:redverydark
+let s:directory           = s:yellowdark
+let s:endofbuffer         = s:redalert
+let s:winseparator        = s:white
+let s:folded              = s:attention
+let s:signcolumn          = s:default
+let s:incsearch           = s:greenbright
+let s:substitute          = s:yellowdark
+let s:linenr              = s:default
+let s:cursorlinenr        = s:yellowbright
+let s:cursorlinesign      = s:default
+let s:matchparen          = s:yellowdark
+let s:modemsg             = s:greenbright
+let s:msgarea             = s:default
+let s:normal              = s:default
+let s:normalfloat         = s:default
+let s:pmenu               = s:black
+let s:pmenusel            = s:redverydark
+let s:pmenusbar           = s:redbright
+let s:pmenuthumb          = s:redbright
+let s:question            = s:yellowdark
+let s:quickfixline        = s:attention
+let s:search              = s:yellowdark
+let s:statusline          = s:black
+let s:visual              = s:yellowdark
+let s:warningmsg          = s:redalert
+let s:whitespace          = s:default
+let s:winbar              = s:black
+let s:winbarnc            = s:black
 
-" Lines                  , Columns
-call s:HL('LineNr'       , s:gray0 , 'NONE'  , 'NONE' )
-call s:HL('CursorLine'   , 'NONE'  , "#600020" , 'NONE' )
-call s:HL('CursorLineNr' , s:dark , s:lime, 'NONE'  )
-call s:HL('SignColumn'   , s:gray3 , s:dark  , 'NONE' )
-call s:HL('ColorColumn'  , s:light , "#100005" , 'NONE' )
-call s:HL('CursorColumn' , s:light , s:gray3 , 'NONE' )
-
-" Visual
-call s:HL('Visual'    , 'NONE'   , s:gray1 , 'NONE' )
-call s:HL('VisualNOS' , s:gray3  , s:light , 'NONE' )
-call s:HL('Search'    , s:dark , s:lime , 'NONE' )
-call s:HL('IncSearch' , s:dark , s:lime , 'NONE' )
-
-" Spelling
-call s:HL('SpellBad'   , s:red , s:dark , 'NONE' )
-call s:HL('SpellCap'   , s:red , s:dark , 'NONE' )
-call s:HL('SpellLocal' , s:red , s:dark , 'NONE' )
-call s:HL('SpellRare'  , s:red , s:dark , 'NONE' )
-
-" Messages
-call s:HL('ErrorMsg'   , s:red    , s:dark , 'NONE' )
-call s:HL('WarningMsg' , s:yellow , s:dark , 'NONE' )
-call s:HL('ModeMsg'    , s:light  , s:dark , 'NONE' )
-call s:HL('MoreMsg'    , s:light  , s:dark , 'NONE' )
-call s:HL('Error'      , s:red    , s:dark , 'NONE' )
-
-" Preprocessor Directives
-call s:HL('Include'		  , "#aaaaaa"	, 'NONE', 'NONE' )
-call s:HL('Define'		  , "#aaaaaa"	, 'NONE', 'NONE' )
-call s:HL('Macro'		    , "#aaaaaa"	, 'NONE', 'NONE' )
-call s:HL('PreCondit'	  , "#aaaaaa"	, 'NONE', 'NONE' )
-call s:HL('PreProc'		  , "#aaaaaa"	, 'NONE', 'NONE' )
-
-" Bindings
-call s:HL('Identifier'	, "#eeeeee"	, 'NONE', 'NONE' )
-call s:HL('Function'	  , s:light	, 'NONE', 'NONE' )
-call s:HL('Keyword'		  , s:light	, 'NONE', 'NONE' )
-call s:HL('Operator'	  , s:lime	, s:gray2, 'NONE' )
-
-" Types
-call s:HL('Type'		    , "#ffffff"	, 'NONE', 'bold' )
-call s:HL('Typedef'	  	  , s:light	, 'NONE', 'NONE' )
-call s:HL('StorageClass'  , s:light	, 'NONE', 'NONE' )
-call s:HL('Structure'	  , s:light	, 'NONE', 'NONE' )
-
-" Flow Control
-call s:HL('Statement'	  , s:light	, 'NONE', 'NONE' )
-call s:HL('Conditional'	, "#ffffff"	, 'NONE', 'bold' )
-call s:HL('Repeat'		  , s:light	, 'NONE', 'NONE' )
-call s:HL('Label'		    , s:light	, 'NONE', 'NONE' )
-call s:HL('Exception'	  , s:light	, 'NONE', 'NONE' )
-
-" Misc
-call s:HL('Normal'     , s:light , s:dark  , 'NONE'      )
-call s:HL('Cursor'     , s:dark  , "#ff0000" , 'NONE'    )
-call s:HL('Underlined' , s:light , 'NONE'  , 'underline' )
-call s:HL('SpecialKey' , s:light , 'NONE'  , 'NONE'      )
-call s:HL('NonText'    , s:light , 'NONE'  , 'NONE'      )
-call s:HL('Directory'  , s:light , 'NONE'  , 'NONE'      )
-
-" Fold
-call s:HL('FoldColumn'	  , s:light, s:gray3 , 'NONE' )
-call s:HL('Folded'		  , s:light, s:gray3 , 'NONE' )
-
-" Parens
-call s:HL('MatchParen'	  , s:dark, s:lime , 'NONE' )
-
-" Popup Menu
-call s:HL('Pmenu'      , s:light , s:gray1 , 'NONE' )
-call s:HL('PmenuSbar'  , s:dark  , s:gray3 , 'NONE' )
-call s:HL('PmenuSel'   , s:dark  , s:light , 'NONE' )
-call s:HL('PmenuThumb' , s:dark  , s:light , 'NONE' )
-
-" Split
-call s:HL('VertSplit'	  , s:gray1, s:dark , 'bold' )
-
-" Others
-call s:HL('Debug'        , s:light , 'NONE'  , 'NONE' )
-call s:HL('Delimiter'    , s:light , 'NONE'  , 'NONE' )
-call s:HL('Question'     , s:light , 'NONE'  , 'NONE' )
-call s:HL('Special'      , s:light , 'NONE'  , 'NONE' )
-call s:HL('StatusLine'   , s:light , s:gray2 , 'NONE' )
-call s:HL('StatusLineNC' , s:light , s:gray2 , 'NONE' )
-call s:HL('Tag'          , s:light , 'NONE'  , 'NONE' )
-call s:HL('WildMenu'     , s:dark  , s:light , 'NONE' )
-call s:HL('TabLine'      , s:light , s:gray2 , 'NONE' )
-
-" Diff
-call s:HL('DiffAdd'    , s:green  , 'NONE' , 'NONE' )
-call s:HL('DiffChange' , s:yellow , 'NONE' , 'NONE' )
-call s:HL('DiffDelete' , s:red    , 'NONE' , 'NONE' )
-call s:HL('DiffText'   , s:dark   , 'NONE' , 'NONE' )
-
-" GitGutter
-call s:HL('GitGutterAdd'          , s:green  , 'NONE' , 'NONE' )
-call s:HL('GitGutterChange'       , s:yellow , 'NONE' , 'NONE' )
-call s:HL('GitGutterDelete'       , s:red    , 'NONE' , 'NONE' )
-call s:HL('GitGutterChangeDelete' , s:dark   , 'NONE' , 'NONE' )
-
-" Vimscript
-call s:HL('vimFunc'          , s:light , 'NONE' , 'NONE' )
-call s:HL('vimUserFunc'      , s:light , 'NONE' , 'NONE' )
-call s:HL('vimLineComment'   , s:gray0 , 'NONE' , 'NONE' )
-call s:HL('vimCommentString' , s:gray0 , 'NONE' , 'NONE' )
-
-" NERDTree
-call s:HL('NERDTreeCWD'            , s:gray1 , 'NONE' , 'NONE' )
-call s:HL('NERDTreeFile'           , s:light , 'NONE' , 'NONE' )
-call s:HL('NERDTreeNodeDelimiters' , s:light , 'NONE' , 'NONE' )
-
-
-" FZF
-call s:HL('fzf1' , s:light , s:gray2 , 'NONE' )
-call s:HL('fzf2' , s:light , s:gray2 , 'NONE' )
-call s:HL('fzf3' , s:light , s:gray2 , 'NONE' )
+call HIGHLIGHTGROUP('ColorColumn', 'NONE', s:colorcolumn, 'NONE')	
+call HIGHLIGHTGROUP('CurSearch', s:cursearch, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Cursor', s:cursor, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('CursorLine', 'NONE', s:cursorline, 'NONE')	
+call HIGHLIGHTGROUP('Directory', s:directory, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('EndOfBuffer', s:endofbuffer, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('WinSeparator', s:winseparator, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Folded', s:folded, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('SignColumn', s:signcolumn, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('IncSearch', s:incsearch, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Substitute', s:substitute, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('LineNr', s:linenr, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('CursorLineNr', s:cursorlinenr, 'NONE', 'bold')	
+call HIGHLIGHTGROUP('CursorLineSign', s:cursorlinesign, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('MatchParen', s:matchparen, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('ModeMsg', s:modemsg, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('MsgArea', s:msgarea, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Normal', s:normal, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('NormalFloat', s:normalfloat, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Pmenu', s:pmenu, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('PmenuSel', s:pmenusel, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('PmenuSbar', s:pmenusbar, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('PmenuThumb', s:pmenuthumb, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Question', s:question, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('QuickFixLine', s:quickfixline, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Search', s:search, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('StatusLine', s:statusline, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Visual', s:black, s:visual, 'NONE')		
+call HIGHLIGHTGROUP('WarningMsg', s:warningmsg, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Whitespace', s:whitespace, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('WinBar', s:winbar, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('WinBarNC', s:winbarnc, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Comment', s:comment, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Constant', s:constant, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('String', s:string, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Character', s:character, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Number', s:number, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Boolean', s:boolean, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Float', s:float, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Identifier', s:identifier, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Function', s:function, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Statement', s:statement, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Conditional', s:conditional, 'NONE', 'bold')	
+call HIGHLIGHTGROUP('Repeat', s:repeat, 'NONE', 'bold')		
+call HIGHLIGHTGROUP('Label', s:label, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Operator', s:operator, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Keyword', s:keyword, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Exception', s:exception, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('PreProc', s:preproc, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Include', s:include, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Define', s:define, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Macro', s:macro, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('PreCondit', s:precondit, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Type', s:type, 'NONE', 'bold')		
+call HIGHLIGHTGROUP('StorageClass', s:storageclass, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Structure', s:structure, 'NONE', 'bold')	
+call HIGHLIGHTGROUP('Typedef', s:typedef, 'NONE', 'bold')	
+call HIGHLIGHTGROUP('Special', s:special, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('SpecialChar', s:specialchar, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Tag', s:tag, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Delimiter', s:delimiter, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('SpecialComment', s:specialcomment, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Debug', s:debug, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Underlined', s:underlined, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Ignore', s:ignore, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Error', s:error, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Todo', s:todo, 'NONE', 'NONE')		
