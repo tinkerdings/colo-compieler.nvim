@@ -80,7 +80,7 @@ let s:endofbuffer         = s:redalert
 let s:winseparator        = s:white
 let s:folded              = s:attention
 let s:signcolumn          = s:default
-let s:incsearch           = s:greenbright
+let s:incsearch           = s:redsoft
 let s:substitute          = s:yellowdark
 let s:linenr              = s:default
 let s:cursorlinenr        = s:yellowbright
@@ -91,7 +91,7 @@ let s:msgarea             = s:default
 let s:normal              = s:default
 let s:normalfloat         = s:default
 let s:pmenu               = s:black
-let s:pmenusel            = s:redverydark
+let s:pmenusel            = s:redsoft
 let s:pmenusbar           = s:redbright
 let s:pmenuthumb          = s:redbright
 let s:question            = s:yellowdark
@@ -123,8 +123,8 @@ call HIGHLIGHTGROUP('ModeMsg', s:modemsg, 'NONE', 'NONE')
 call HIGHLIGHTGROUP('MsgArea', s:msgarea, 'NONE', 'NONE')		
 call HIGHLIGHTGROUP('Normal', s:normal, 'NONE', 'NONE')		
 call HIGHLIGHTGROUP('NormalFloat', s:normalfloat, 'NONE', 'NONE')	
-call HIGHLIGHTGROUP('Pmenu', s:pmenu, 'NONE', 'NONE')		
-call HIGHLIGHTGROUP('PmenuSel', s:pmenusel, 'NONE', 'NONE')	
+call HIGHLIGHTGROUP('Pmenu', 'NONE', s:pmenu, 'NONE')		
+call HIGHLIGHTGROUP('PmenuSel', s:redsoft, s:pmenu, 'NONE')	
 call HIGHLIGHTGROUP('PmenuSbar', s:pmenusbar, 'NONE', 'NONE')	
 call HIGHLIGHTGROUP('PmenuThumb', s:pmenuthumb, 'NONE', 'NONE')	
 call HIGHLIGHTGROUP('Question', s:question, 'NONE', 'NONE')	
