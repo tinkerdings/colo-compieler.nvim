@@ -19,6 +19,8 @@ endfunction
 
 " Palette
 let s:black           = "#000000"
+let s:greylight       = "#888888"
+let s:greydark        = "#333333"
 let s:default         = "#DDDDDD"
 let s:white           = "#FFFFFF"
 let s:greenbright     = "#10FFA0"
@@ -36,6 +38,7 @@ let s:bluedark        = "#8080C8"
 let s:bluebright      = "#80AAFF"
 let s:cyan            = "#20FFFF"
 
+let s:background          = s:greydark
 let s:comment             = s:reddark
 let s:constant            = s:default
 let s:string              = s:bluedark
@@ -73,7 +76,7 @@ let s:todo                = s:redsoft
 let s:error               = s:redalert
 let s:colorcolumn         = s:redsuperdark
 let s:cursearch           = s:default
-let s:cursor              = s:black
+let s:cursor              = s:redalert
 let s:cursorline          = s:redverydark
 let s:directory           = s:yellowdark
 let s:endofbuffer         = s:redalert
@@ -106,7 +109,7 @@ let s:winbarnc            = s:black
 
 call HIGHLIGHTGROUP('ColorColumn', 'NONE', s:colorcolumn, 'NONE')	
 call HIGHLIGHTGROUP('CurSearch', s:cursearch, 'NONE', 'NONE')	
-call HIGHLIGHTGROUP('Cursor', s:cursor, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Cursor', s:cursor, s:redalert, 'NONE')		
 call HIGHLIGHTGROUP('CursorLine', 'NONE', s:cursorline, 'NONE')	
 call HIGHLIGHTGROUP('Directory', s:directory, 'NONE', 'NONE')	
 call HIGHLIGHTGROUP('EndOfBuffer', s:endofbuffer, 'NONE', 'NONE')	
@@ -121,7 +124,7 @@ call HIGHLIGHTGROUP('CursorLineSign', s:cursorlinesign, 'NONE', 'NONE')
 call HIGHLIGHTGROUP('MatchParen', s:matchparen, 'NONE', 'NONE')	
 call HIGHLIGHTGROUP('ModeMsg', s:modemsg, 'NONE', 'NONE')		
 call HIGHLIGHTGROUP('MsgArea', s:msgarea, 'NONE', 'NONE')		
-call HIGHLIGHTGROUP('Normal', s:normal, 'NONE', 'NONE')		
+call HIGHLIGHTGROUP('Normal', s:redalert, s:background, 'NONE')		
 call HIGHLIGHTGROUP('NormalFloat', s:normalfloat, 'NONE', 'NONE')	
 call HIGHLIGHTGROUP('Pmenu', 'NONE', s:pmenu, 'NONE')		
 call HIGHLIGHTGROUP('PmenuSel', s:redsoft, s:pmenu, 'NONE')	
